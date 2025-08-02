@@ -17,7 +17,7 @@ public class LinkedStack<T> implements StackInterface {
     @Override
     public void push(Object newEntry) {
         
-        Node newNode = new Node(newEntry);
+        Node newNode = new Node((T) newEntry);
         newNode.next = topNode;
         //node newNode = newNode(newEntry, topNode);
         topNode = newNode;
@@ -28,22 +28,53 @@ public class LinkedStack<T> implements StackInterface {
 
     @Override
     public Object pop() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        
+        if (topNode != null) {
+            
+            T topData = topNode.data;
+            topNode = topNode.next;
+            
+            return topData;
+        }
+        return null;    
+            }
 
     @Override
     public Object peek() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       if (topNode != null) {
+           return topNode.data;
+           
+       }
+       return null;
     }
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return topNode == null;
     }
 
     @Override
     public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        topNode = null;
+        }
+    
+    
+    private class Node {
+        
+        private T data;
+        private Node next;
+        
+        private Node (T data) {
+            this.data = data;
+            this.next = next;
+            
+        }
+        
+     private Node (T data, Node next) {
+        this.data = data;
+        this.next = next;
+    }
     }
     
+   
 }
