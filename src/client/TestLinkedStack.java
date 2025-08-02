@@ -20,9 +20,10 @@ public class TestLinkedStack {
         stack1.push(2);
         stack1.push(3);
         
+        System.out.println("Stack " + stack1);
         System.out.println("Pop 1 : " + stack1.pop());
-        System.out.println("Pop 1 : " + stack1.peek());
-        System.out.println("Pop 1 : " + stack1.pop());
-        System.out.println("Pop 1 : " + stack1.pop());
+        System.out.println("Peek 1 : " + stack1.peek());
+        System.out.println("Pop 2 : " + stack1.pop());
+        System.out.println("Pop 3 : " + stack1.pop());
     }
 }
